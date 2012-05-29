@@ -1,0 +1,6 @@
+<video-list>
+	<video title="Video 1" author="Author 1" file="vid1"/>
+	<video title="Video 2" author="Author 2" file="vid2"/>
+	<video title="Video 3" author="Author 3" file="vid3"/>
+	<video title="Video 4" author="Author 4" file="vid4"/>
+</video-list>
