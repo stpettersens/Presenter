@@ -1,4 +1,4 @@
 Presenter
 =========
 
-Video presentation application, written in C# with XNA.
+A kiosk presentation application for your videos written in C# with XNA.
