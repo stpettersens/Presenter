@@ -49,7 +49,7 @@ canvas {
 	border: 1px solid #c3c3c3;
 }
 /* Page footer and small text */
-footer {
+#demo-footer {
 	position: relative;
 	padding-top: 330px;
 }
