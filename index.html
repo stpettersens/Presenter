@@ -1,74 +1,79 @@
 <!DOCTYPE html>
-<html>
-
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Presenter : Video presentation application, written in C# with XNA." />
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Presenter</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/stpettersens/Presenter">View on GitHub</a>
-
-          <h1 id="project_title">Presenter</h1>
-          <h2 id="project_tagline">Video presentation application, written in C# with XNA.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/stpettersens/Presenter/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/stpettersens/Presenter/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Presenter maintained by <a href="https://github.com/stpettersens">stpettersens</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+<html lang="en">
+<head>
+<!-- Use UTF-8 encoding as it supports many characters -->
+<meta charset="UTF-8"/>
+<!-- Include stylesheet -->
+<link rel="stylesheet" media="screen" type="text/css" href="presenter.css"/>
+<!-- Include Atom feed of project commits -->
+<link rel="alternate" type="application/atom+xml" 
+href="http://github.com/stpettersens/Presenter/commits/master.atom"/>
+<title>Presenter. A kiosk presentation application.</title>
+</head>
+<body>
+<h1><!--<a href="./">-->Presenter.<!--</a>--></h1>
+<h3>A kiosk presentation application for your videos.</h3>
+<!-- Main site navigation -->
+<nav>
+	<a href="howto.html">How to use</a> |
+	<a href="demo.html">Demonstration</a> |
+	<a href="feedback.html">Feedback</a> |
+	<a href="links.html">Links</a> |
+	<a class="ext" href="http://3142dev.tumblr.com">Blog</a>
+</nav>
+<article>
+	<p id="desc1">
+	<em>Presenter</em> is an application, written in C&#9839; with the XNA framework, to
+	present videos in a kiosk environment such as at a film exhibition or game show.
+	</p>
+	<p id="desc2">
+	It was originally written for the <a class="ext" 
+	href="http://iamdegreeshows.co.uk">I AM University Degree Shows 2012</a> to
+	present the short films of Lewis Smith in an exhibiting kiosk.
+	</p>
+	<!-- Image-based site navigation -->
+	<nav>
+		<a class="inav" href="howto.html">
+		<img class="ilnk" title="How to use" alt="How to use" src="images/nav/howto.png"/>
+		</a>
+		<a class="inav" href="demo.html">
+		<img class="ilnk" title="Demonstration" alt="Demonstratrion. Photo (c) Alex of Gothenburg,
+		http://www.flickr.com/photos/11872189@N00/5051534813"
+		src="images/nav/demo.png"/>
+		</a>
+		<a class="inav" href="links.html">
+		<img class="ilnk" title="Links" alt="Links"
+		src="images/nav/links.png"/>
+		</a>
+	</nav>
+	<p>
+	<!-- Download and requirement links -->
+	<a href="...">Download Presenter</a><br/>
+	<small>
+	(Windows, <a class="ext" href="http://www.microsoft.com/net">.NET Framework 4</a> &amp; 
+	<a class="ext" href="http://www.microsoft.com/en-us/download/details.aspx?id=20914">XNA Framework Redistributable 4.0</a> required.)
+	</small>
+	</p>
+	<p>
+	<!-- Link to Atom feed of commits to project -->
+	<a href="http://github.com/stpettersens/Presenter/commits/master.atom">Commits</a> <img id="rss_feed" src="images/nav/feed-icon-14x14.png" alt="RSS feed"/>
+	 <a href="http://github.com/stpettersens/Presenter">on Github</a>.
+	</p>
+</article>
+<footer>
+<p>
+<!-- Wigwam Studios affliate linking image -->
+<img alt="In association with wigwam studios" src="images/gallery/wigwam_aff.png"/><br/>
+</p>
+<!-- Copyright notice -->
+<p>This website and the <em>Presentation</em> application are
+<br/>&copy; Copyright 2012 Sam Saint-Pettersen.</p>
+<p>
+<!-- HTML and CSS validation service links -->
+<a href="http://validator.w3.org/check">Valid HTML 5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">Valid CSS 3.0</a>
+</p>
+<!-- Hosting credit -->
+<p>Hosted courtesy of <a class="ext" href="http://github.com">github</a>.</p>
+</footer>
+</body>
 </html>

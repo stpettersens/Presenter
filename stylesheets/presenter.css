@@ -1,0 +1,59 @@
+/* Get Asul font via Google Web Fonts */
+@import url(http://fonts.googleapis.com/css?family=Asul); 
+
+/* Page body */
+body {
+	font-family: Verdana, Helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: center;
+}
+/* Nain page content, use article elements */
+article {
+	text-align: left;
+	margin: auto;
+	margin-top: 1%;
+	padding: 1%;
+	width: 750px;
+}
+/* Headings */
+h1, h3 {
+	font-family: 'Asul', sans-serif;
+}
+/* Hyperlinks */
+a  {
+	color: #404040;
+}
+/* Hyperlinks (hover over) */
+a:hover {
+	border-color: #780000;
+	color: #780000;
+	text-decoration: none;
+}
+/* Links in image-based navigation (class) */
+.inav {
+	text-decoration: none;
+}
+/* Images in image-based navigation (class) */
+.ilnk {
+	border: 1px solid #c3c3c3;
+}
+/* Second descriptive text part (id) */
+#desc2 {
+	margin-bottom: 2%;
+}
+/* Demonstration canvases */
+canvas {
+	position: absolute;
+	
+	margin: auto;
+	border: 1px solid #c3c3c3;
+}
+/* Page footer and small text */
+footer {
+	position: relative;
+	padding-top: 330px;
+}
+
+footer, small {
+	font-size: 8pt;
+}
