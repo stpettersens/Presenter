@@ -24,7 +24,7 @@ function Caption(message, color, x, y) {
 
     // Methods
     this.draw = function() { 
-
+        // Draw the caption, using the parameters provided.
         gContextOverlay.beginPath();
         gContextOverlay.rect(this.x, this.y, 180, 40);
         gContextOverlay.fillStyle = this.color;
@@ -43,10 +43,11 @@ function Caption(message, color, x, y) {
     this.remove = function() {
         // This actually clears the entire overlay canvas,
         // but this is invoked with {button}.remove() in showCaption(event).
-        var width = gDemoOverlay.width;
+        /*var width = gDemoOverlay.width;
         gDemoOverlay.width = width + 1;
         width = gDemoOverlay.width;
-        gDemoOverlay.width = width - 1;
+        gDemoOverlay.width = width - 1;*/
+        gContextOverlay.clearRect(0, 0, gDemoOverlay.width, gDemoOverlay.height);
     };
 }
 
