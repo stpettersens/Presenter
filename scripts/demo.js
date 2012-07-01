@@ -82,7 +82,7 @@ function showCaption(event) {
         x.draw();
     }
     // Show A button caption.
-    else if(mouseX > 336 && mouseX < 369 && mouseY > 138 && mouseY < 228) {
+    else if(mouseX > 336 && mouseX < 369 && mouseY > 196 && mouseY < 228) {
         a.remove();
         a.draw();
     }
