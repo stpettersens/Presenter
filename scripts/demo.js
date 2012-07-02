@@ -9,7 +9,7 @@ Requires jQuery 1.2+ (used 1.7.2) for calculating offsets
 in mouse X and Y positions over the canvas overlay.
 */
 
-// Globals
+// Globals.
 var gDemoOverlay;
 var gContextOverlay;
 
@@ -37,16 +37,12 @@ function Caption(message, color, x, y) {
         gContextOverlay.fillStyle = "#000000";
         gContextOverlay.fillText(this.message, this.x + 10, this.y + 25);
 
-        console.log(gContextOverlay + " Drew caption: "  + "\'" + this.message + "\' in " 
-        + this.color + " at " + x + "," + this.y + ".");
+        /*console.log(gContextOverlay + " Drew caption: "  + "\'" + this.message + "\' in " 
+        + this.color + " at " + x + "," + this.y + ".");*/
     };
     this.remove = function() {
         // This actually clears the entire overlay canvas,
         // but this is invoked with {button}.remove() in showCaption(event).
-        /*var width = gDemoOverlay.width;
-        gDemoOverlay.width = width + 1;
-        width = gDemoOverlay.width;
-        gDemoOverlay.width = width - 1;*/
         gContextOverlay.clearRect(0, 0, gDemoOverlay.width, gDemoOverlay.height);
     };
 }
@@ -54,14 +50,15 @@ function Caption(message, color, x, y) {
 // Show a caption; linked to event listener for 'mousemove'.
 function showCaption(event) {
 
+    // Define captions objects.
     var y = new Caption("Y button - Show caption", "#FFFF66", 270, 90);
     var x = new Caption("X button - Pause video", "#3399FF", 128, 155);
     var a = new Caption("A button - Play video", "#99CC66", 265, 225);
     var b = new Caption("B button - Exit player", "#FF3333", 402, 155);
     var rb = new Caption("RB - Increase volume", "#A8A8A8", 270, 70);
-    var lb = new Caption("LB - Decrease volume", "#A8A8A8", 40, 70);
-    var rs = new Caption("RS [Click] - Sticky capt.", "#A8A8A8", 265, 240);
-    var ls = new Caption("LS [Up] - Next video", "#A8A8A8", 40, 130);
+    var lb = new Caption("LB - Decrease volume", "#A8A8A8", 25, 70);
+    var ls = new Caption("LS [Up] - Next video", "#A8A8A8", 20, 130);
+    var rs = new Caption("RS [Click] - Sticky capt.", "#A8A8A8", 225, 235);
 
     // Use event or window.event object.
     var e  = event || window.event;
@@ -91,10 +88,30 @@ function showCaption(event) {
         b.remove();
         b.draw();
     }
+    // Show RB caption.
+    else if(mouseX > 317 && mouseX < 377 && mouseY > 99 && mouseY < 109) {
+        rb.remove();
+        rb.draw();
+    }
+    // Show LB caption.
+    else if(mouseX > 94 && mouseX < 139 && mouseY > 99 && mouseY < 109) {
+        lb.remove();
+        lb.draw();
+    }
+    // Show LS caption.
+    else if(mouseX > 80 && mouseX < 126 && mouseY > 147 && mouseY < 164) {
+        ls.remove();
+        ls.draw();
+    }
+    // Show RS caption.
+    else if(mouseX > 259 && mouseX < 321 && mouseY > 224 && mouseY < 280) {
+        rs.remove();
+        rs.draw();
+    }
     // Remove caption on hover away.
     else y.remove();
 
-    console.log(mouseX + ", " + mouseY);
+    /*console.log("%i, %i", mouseX, mouseY);*/
 }
 
 // Entry function, called when page loads.
