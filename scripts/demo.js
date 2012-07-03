@@ -1,5 +1,5 @@
 /*
-Presenter demonstration using Canvas and JavaScript on
+Presenter demonstration using Canvas element and JavaScript on
 http://presenter.github.com/demo.html
 Copyright (c) 2012 Sam Saint-Pettersen.
 
@@ -11,6 +11,7 @@ in mouse X and Y positions over the canvases.
 
 // Globals.
 var gDemoUI, gContextUI, gDemoOverlay, gContextOverlay;
+var gIndex = 1;
 var gSticky = false;
 
 // Define a Caption 'class'.
@@ -65,9 +66,10 @@ function UIComponent(message, x, y) {
     this.update = function(message) {
         // Remove and then set text.
         this.remove();
+        this.message = message;
         gContextUI.font = "8pt Verdana";
         gContextUI.fillStyle = "#FFFFFF";
-        gContextUI.fillText(message, this.x, this.y);
+        gContextUI.fillText(this.message, this.x, this.y);
     };
     this.fadeout = function() {
         window.setTimeout(this.remove, 3000);
@@ -90,7 +92,10 @@ function showCaption(event) {
     var rb = new Caption("RB - Increase volume", "#A8A8A8", 270, 70);
     var lb = new Caption("LB - Decrease volume", "#A8A8A8", 25, 70);
     var ls = new Caption("LS [Up] - Next video", "#A8A8A8", 20, 110);
+    /*
+    var lsm = new Caption("LS [Click] - Unsticky info.", "#A8A8A8", 8, 150);
     var rs = new Caption("RS [Click] - Sticky info.", "#A8A8A8", 320, 235);
+    */
 
     // Use event or window.event object.
     var e  = event || window.event;
@@ -126,14 +131,18 @@ function showCaption(event) {
     else if(mouseX > 94 && mouseX < 139 && mouseY > 99 && mouseY < 109) {
         lb.draw();
     }
-    // Show LS caption.
+    // Show LS (top) caption.
     else if(mouseX > 80 && mouseX < 126 && mouseY > 147 && mouseY < 164) {
         ls.draw();
     }
-    // Show RS caption.
+    /*// Show LS (middle) caption.
+    else if(mouseY > 80 && mouseX < 126 && mouseY > 169 && mouseY < 206) {
+        lsm.draw();
+    }*/
+    /*// Show RS caption.
     else if(mouseX > 259 && mouseX < 321 && mouseY > 224 && mouseY < 280) {
         rs.draw();
-    }
+    }*/
 
     /*console.log("%i, %i", mouseX, mouseY);*/
 }
@@ -141,8 +150,13 @@ function showCaption(event) {
 // Control behavior of preview monitor; linked to event listener for 'click'.
 function controlBehavior(event)
 {
-    var title = new UIComponent("Autumn Day.", 470, 39);
-    var author = new UIComponent("A.B Peabody.", 470, 50);
+    // Define video titles, authors and index.
+    var videoTitles = [ "Autumn Day", "JavaScript Uncovered", "Max Payne 3 trailer" ];
+    var videoAuthors = [ "A.B Peabody", "Karl Schultz", "Rockstar Games" ];
+
+    // Define initial video title and author.
+    var title = new UIComponent(videoTitles[gIndex-1], 470, 39);
+    var author = new UIComponent(videoAuthors[gIndex-1], 470, 50);
 
     // Use event or window.event object.
     var e  = event || window.event;
@@ -156,8 +170,7 @@ function controlBehavior(event)
 
     // Show video title and author (Y button action).
     if(mouseX > 339 && mouseX < 370 && mouseY > 130 && mouseY < 161)  {
-        if(!gSticky)
-        {
+        if(!gSticky) {
             title.draw();
             author.draw();
         }
@@ -184,28 +197,60 @@ function controlBehavior(event)
     }
     // Next video (LS up action).
     else if(mouseX > 80 && mouseX < 126 && mouseY > 147 && mouseY < 164) {
+        if(gIndex < videoTitles.length) gIndex++;
+        else gIndex = 1;
+        drawBackground(gIndex);
+        /*console.log("Video: %i of %i", gIndex, videoTitles.length);*/
     }
-    // Show sticky video information. (RS click).
+    /*// Unsticky video information. (LS click action).
+    else if(mouseY > 80 && mouseX < 126 && mouseY > 169 && mouseY < 206) {
+        gStick = false;
+    }
+    // Show sticky video information. (RS click action).
     else if(mouseX > 259 && mouseX < 321 && mouseY > 224 && mouseY < 280) {
-        if(!gSticky) {
             gSticky = true;
             title.draw();
             author.draw();
-        }
-        else gSticky = false;
-    }
+    }*/
 
     if(!gSticky) title.fadeout();
 
     /*console.log("Sticky: %b", gSticky);*/
 }
 
+// Draw background (gamepad, preview monitor, etc.) to base canvas.
+function drawBackground(vidIndex) {
+
+    // Demo base layer.
+    var demoBase = document.getElementById("demo-base");
+    var contextBase = demoBase.getContext("2d");
+
+    // Images.
+    var xbgp = new Image();
+    var preview = new Image();
+
+    // First clear the base canvas.
+    contextBase.clearRect(0, 0, demoBase.width, demoBase.height);
+
+    // Load Xbox 360 gamepad image.
+    xbgp.onload = function() {
+        contextBase.drawImage(xbgp, 20, 100);
+    };
+    xbgp.src = "images/demo/xbgp.jpg";
+
+    // Load preview monitor image.
+    preview.onload = function() {
+        contextBase.drawImage(preview, 465, 10);
+    };
+    preview.src = "images/demo/vid" + vidIndex + ".png";
+
+    // Load "Demonstration" permanent caption.
+    contextBase.font = "italic 12pt Verdana";
+    contextBase.fillText("Demonstration", 5, 20);
+}
+
 // Entry function, called when page loads.
 window.onload = function() {
-
-	// Demo base layer.
-	var demoBase = document.getElementById("demo-base");
-	var contextBase = demoBase.getContext("2d");
 
     // Demo UI layer.
     gDemoUI = document.getElementById("demo-ui");
@@ -215,25 +260,8 @@ window.onload = function() {
 	gDemoOverlay = document.getElementById("demo-overlay");
 	gContextOverlay = gDemoOverlay.getContext("2d");
 
-    // Images.
-    var xbgp = new Image();
-    var preview = new Image();
-
-    // Load Xbox 360 gamepad image.
-    xbgp.onload = function() {
-   		contextBase.drawImage(xbgp, 20, 100);
-    };
-    xbgp.src = "images/demo/xbgp.jpg";
-
-    // Load preview monitor image.
-    preview.onload = function() {
-    	contextBase.drawImage(preview, 465, 10);
-    };
-    preview.src = "images/demo/vid1.png";
-
-    // Load "Demonstration" permanent caption.
-    contextBase.font = "italic 12pt Verdana";
-    contextBase.fillText("Demonstration", 5, 20);
+    // Draw background to base layer.
+    drawBackground(1);
 
     // Add event handlers for 'mousemove' and 'click', respectively.
     gDemoOverlay.addEventListener("mousemove", showCaption, false);

@@ -1,8 +1,10 @@
 Boulton, M. (2005) Five simple steps to designing grid systems - Part 1. [Online]. Available from: http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-1 [Accessed 3rd June 2012]. N.
 
-Brown, D. (2010). Communicating Design: Developing Web Site Documentation for Design and Planning. 2nd Ed.Berkeley, New Riders Press. N.
+Brown, D. (2010) Communicating Design: Developing Web Site Documentation for Design and Planning. 2nd Ed.Berkeley, New Riders Press. N.
 
 Cass, J. (2011) How to build a personal foundation through branding, blogging & social media. [Online]. Available from: http://justcreative.com/2011/04/27/building-a-personal-brand [Accessed 3rd June 2012]. N.
+
+CSS Infos. (No date) CSS property: -webkit-box-reflect. [Online]. Available from: http://css-infos.net/property/-webkit-box-reflect [Accessed 3rd June 2012]. N. ADD TO ON SITE REFS.
 
 DiMarco, J. (2010) Digital Design For Print And Web: An Introduction to Theory, Principles And Techniques. New Jersey, John Wiley & Sons. N.
 
@@ -11,6 +13,8 @@ Friedman, V. (2011) Useful Coding Tools and JavaScript Libraries For Web Develop
 Gube, J. (2009) 50 Useful JavaScript Tools. [Online]. Available from: http://coding.smashingmagazine.com/2009/02/08/50-extremely-useful-javascript-tools [Accessed 3rd June 2012]. N.
 
 Hooper, N. (2010) How to reset canvas in HTML5. [Online]. Available from: http://cogitas.net/blog/2010/08/24/how-to-reset-canvas-in-html5 [Accessed 3rd June 2012]. N.
+
+Hyatt, D. (2008) CSS Reflections. [Online]. Available from: http://www.webkit.org/blog/182/css-reflections [Accessed 3rd June 2012]. N.
 
 Khambalkar, V. (2006) How to Get Mouse Coordinates with JavaScript. [Online]. Available from: http://vijayk.wordpress.com/2006/12/11/how-to-get-mouse-coordinates-with-javascript [Accessed 3rd June 2012]. N.
 
@@ -38,14 +42,15 @@ Mozilla (2010) Firebug: Web Development Evolved. [Online]. Available from: http:
 
 Mozilla (2012) Console API. [Online]. Available from: http://getfirebug.com/wiki/index.php/Console_API [Accessed 3rd June 2012]. N.
 
-
 Mozilla Developer Network (2011) More Event Handlers. [Online]. Available from: http://developer.mozilla.org/en/XUL_Tutorial/More_Event_Handlers [Accessed 3rd June 2012]. N. 
 
-Mozilla Developer Network (2012a) element.addEventListener. [Online]. Available from: http://developer.mozilla.org/en/DOM/element.addEventListener [Accessed 3rd June 2012]. N. CHANGE REFERENCE ON SITE FROM 2012 TO 2012a. SWITCH ORDER WITH 2011.
+Mozilla Developer Network (2012a) element.addEventListener. [Online]. Available from: http://developer.mozilla.org/en/DOM/element.addEventListener [Accessed 3rd June 2012]. N.
 
-Mozilla Developer Network (2012b) window.setTimeout. [Online]. Available from: https://developer.mozilla.org/en/DOM/window.setTimeout [Accessed 3rd June 2012]. N. INSERT THIS REFERENCE ON SITE.
+Mozilla Developer Network (2012b) window.setTimeout. [Online]. Available from: http://developer.mozilla.org/en/DOM/window.setTimeout [Accessed 3rd June 2012]. N.
 
-Mozilla Developer Network (2012c) window.location. [Online]. Available from: https://developer.mozilla.org/en/DOM/window.location [Accessed 3rd June 2012]. N. INSERT THIS REFERENCE ON SITE.
+Mozilla Developer Network (2012c) window.location. [Online]. Available from: http://developer.mozilla.org/en/DOM/window.location [Accessed 3rd June 2012]. N.
+
+Pederick, C. (2012) Web Developer. [Online]. Available from: http://chrispederick.com/work/web-developer [Accessed 3rd June 2012]. N.
 
 Piirainen, T. (No date) HEADjs: The Only Script In Your <HEAD>. [Online]. Available from: http://headjs.com [Accessed 3rd June 2012].
 
@@ -74,3 +79,7 @@ The jQuery Project (2010) Tutorials:Mouse Position. [Online]. Available from: ht
 University of Worcester (2012) I AM University of Worcester Degree Shows 2012. [Online]. Available from: http://iamdegreeshows.co.uk [Accessed 2nd June 2012].
 
 W3Schools (No date) HTML Colors. [Online]. Available from: http://www.w3schools.com/html/html_colors.asp [Accessed 2nd June 2012]. N.
+
+Way, J. (2010) Quick Tip: Pure CSS Reflections. [Online]. Available from: http://net.tutsplus.com/tutorials/html-css-techniques/quick-tip-pure-css-reflections [Accessed 3rd June 2012]. N.
+
+WHATWG (No date) HTML5: A technical specification for Web Developers. [Online]. Available from: http://developers.whatwg.org [Accessed 3rd June 2012].
