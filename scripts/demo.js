@@ -10,8 +10,7 @@ in mouse X and Y positions over the canvases.
 */
 
 // Globals.
-var gVideos, gGamepad, gDemoBase, gDemoUI, gDemoOverlay; 
-var gContextBase, gContextUI, gContextOverlay;
+var gDemoUI, gContextUI, gDemoOverlay, gContextOverlay;
 var gIndex = 1;
 var gSticky = false;
 
@@ -200,7 +199,7 @@ function controlBehavior(event)
     else if(mouseX > 80 && mouseX < 126 && mouseY > 147 && mouseY < 164) {
         if(gIndex < videoTitles.length) gIndex++;
         else gIndex = 1;
-        drawBackground(gVideos[gIndex-1]);
+        drawBackground(gIndex);
         /*console.log("Video: %i of %i", gIndex, videoTitles.length);*/
     }
     /*// Unsticky video information. (LS click action).
@@ -219,53 +218,39 @@ function controlBehavior(event)
     /*console.log("Sticky: %b", gSticky);*/
 }
 
-// Load images used by the simulation.
-function loadImages(sources, callback) {
-    var images = {};
-    var loadedImages = 0;
-    var numImages = 0;
+// Draw background (gamepad, preview monitor, etc.) to base canvas.
+function drawBackground(vidIndex) {
 
-    for(var src in sources) {
-        numImages++;
-    }
+    // Demo base layer.
+    var demoBase = document.getElementById("demo-base");
+    var contextBase = demoBase.getContext("2d");
 
-    // Get number of sources.
-    for(var src in sources) {
-        images[src] = new Image();
-        images[src].onload = function() {
-            if(++loadedImages >= numImages) {
-                callback(images);
-            }
-        };
-        images[src].src = sources[src];
-        /*console.log("Loaded image: %s", src);*/
-    }
-}
-
-
-// Draw background (gamepad, preview monitor [video], etc.) to base canvas.
-function drawBackground(video) {
+    // Images.
+    var xbgp = new Image();
+    var preview = new Image();
 
     // First clear the base canvas.
-    gContextBase.clearRect(0, 0, gDemoBase.width, gDemoBase.height);
+    contextBase.clearRect(0, 0, demoBase.width, demoBase.height);
 
-    // Draw gamepad representation.
-    gContextBase.drawImage(gGamepad, 20, 100);
+    // Load Xbox 360 gamepad image.
+    xbgp.onload = function() {
+        contextBase.drawImage(xbgp, 20, 100);
+    };
+    xbgp.src = "images/demo/xbgp.jpg";
 
-    // Draw  preview monitor/video representation.
-    gContextBase.drawImage(video, 465, 10);
+    // Load preview monitor image.
+    preview.onload = function() {
+        contextBase.drawImage(preview, 465, 10);
+    };
+    preview.src = "images/demo/vid" + vidIndex + ".png";
 
     // Load "Demonstration" permanent caption.
-    gContextBase.font = "italic 12pt Verdana";
-    gContextBase.fillText("Demonstration", 5, 20);
+    contextBase.font = "italic 12pt Verdana";
+    contextBase.fillText("Demonstration", 5, 20);
 }
 
 // Entry function, called when page loads.
 window.onload = function() {
-
-    // Demo base layer.
-    gDemoBase = document.getElementById("demo-base");
-    gContextBase = gDemoBase.getContext("2d");
 
     // Demo UI layer.
     gDemoUI = document.getElementById("demo-ui");
@@ -275,29 +260,9 @@ window.onload = function() {
 	gDemoOverlay = document.getElementById("demo-overlay");
 	gContextOverlay = gDemoOverlay.getContext("2d");
 
-    // Images sources.
-    var sources = {
-        xbgp: "images/demo/xbgp.jpg",
-        vid1: "images/demo/vid1.png",
-        vid2: "images/demo/vid2.png",
-        vid3: "images/demo/vid3.png"
-    };
+    // Draw background to base layer.
+    drawBackground(1);
 
-    // Video representations array.
-    gVideos = [];
-
-    // Load images and assign to applicable variables.
-    loadImages(sources, function(images) {
-        gGamepad = images.xbgp;
-        gVideos[0] = images.vid1;
-        gVideos[1] = images.vid2;
-        gVideos[2] = images.vid3;
-
-        // Draw the background with the starting video.
-        drawBackground(gVideos[0]);
-    });
-
-    
     // Add event handlers for 'mousemove' and 'click', respectively.
     gDemoOverlay.addEventListener("mousemove", showCaption, false);
     gDemoOverlay.addEventListener("click", controlBehavior, false);
