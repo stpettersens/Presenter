@@ -16,7 +16,7 @@ article {
 	width: 750px;
 }
 /* Headings. */
-h1, h3 {
+h1, h2, h3 {
 	font-family: 'Asul', sans-serif;
 	text-shadow: 2px 2px 2px #A8A8A8;
 }

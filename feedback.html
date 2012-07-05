@@ -18,37 +18,47 @@ href="http://github.com/stpettersens/Presenter/commits/master.atom"/>
 <!-- Main site navigation -->
 <nav>
 	<a href="howto.html">How to use</a> |
-	<!--<a href="demo.html">--><strong>Demonstration</strong><!--</a>--> |
-	<a href="feedback.html">Feedback</a> |
+	<a href="demo.html">Demonstration</a> |
+	<!--<a href="feedback.html">--><strong>Feedback</strong><!--</a>--> |
 	<a href="links.html">Links</a> |
 	<a class="ext" href="http://3142dev.tumblr.com">Blog</a>
 </nav>
 <!-- Page content -->
 <article>
-	<h2>Demonstration</h2>
+	<h2>Feedback</h2>
 	<p id="desc1">
-	Here is a demonstration of how <em>Presenter</em> works. First, an XML document is parsed by the program which contains a list of videos with their title, author and filename. 
-	This information is provided by the user before runtime, see <a href="howto.html">
-	<strong>How to use</strong></a> for usage instructions.
+	Use the form below to submit your questions, comments or similar messages.
+	I appreciate your feedback.
 	</p>
 	<p id="desc2">
-	 Videos are interacted with using an Xbox 360&reg; gamepad. In the interactive simulation below, use the mouse to control <em>Presenter</em>.
-	 The buttons that are used are the left and right bumbers (<em>LB</em> &amp; <em>RB</em>) and the <em>Y</em>, <em>X</em>, <em>A</em> and 
-	 <em>B</em> buttons. The left stick (<em>LS</em>) upwards is
-	 also used. Hover over the described buttons for information on what they will do and click on them to execute their function.
+	Thank you.
 	</p>
-	<canvas id="demo-base" style="z-index: 0;" width="730" height="300">
-	</canvas>
-	<canvas id="demo-ui" style="z-index: 1;" width="730" height="300">
-	</canvas>
-	<canvas id="demo-overlay" style="z-index: 2;" width="730" height="300">
-	<!-- Message when CANVAS is not supported -->
-	<em>Your browser does not support the CANVAS element.<br/>
-	Please use an <a href="http://html5.com">HTML5</a>-compliant browser to view this demonstration.</em>
-	<!-- /Message -->
-	</canvas>
+	<hr/>
+	<form name="fb-form" action="feedback_received.html" method="post">
+		Name: <input tabindex="1" type="text" name="user" size="40"/>
+		E-mail: <input tabindex="2" type="text" name="email" size="40"/>
+		<br/><br/>
+		Feedback type:
+		<select tabindex="3" name="fb-type">
+			<option value="questionP">Question re: Presenter</option>
+			<option value="commentsP">Comments re: Presenter</option>
+			<option value="bugsP">Bugs re: Presenter</option>
+			<option value="questionP">Question re: Website</option>
+			<option value="commentsP">Comments re: Website</option>
+			<option value="bugsP">Bugs re: Website</option>
+		</select>
+		<br/><br/>
+		Message:
+		<br/>
+		<textarea tabindex="4" name="fb-message" rows="5" cols="80">
+		</textarea>
+		<br/><br/>
+		<input type="submit" value="Post feedback"/>
+		<input type="button" value="Clear form"/>
+	</form>
+	<hr/>
 </article>
-<footer id="demo-footer">
+<footer>
 <!-- Copyright notice -->
 <p>This website and the <em>Presentation</em> application are
 <br/>Copyright &copy; 2012 Sam Saint-Pettersen.</p>
